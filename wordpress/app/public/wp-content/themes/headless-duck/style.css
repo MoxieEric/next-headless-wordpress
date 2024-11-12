@@ -1,13 +1,17 @@
+
 /*
+Theme Name: HeadlessDuck
+Theme URI: https://wordpress.org/themes/twentytwentyfour/
 Theme Name: HeadlessDuck
 Author: Eric Nowels
 Author URI: https://ericnowels.me/
-Basic Headless CMS theme intended for a Next.js Front-end
-Tags: headless
-Version: 0.1.0
-Requires at least: 6.0
-Tested up to: 6.0
+Description: Basic Headless CMS theme intended for a Next.js Front-end
+Requires at least: 6.4
+Tested up to: 6.6
 Requires PHP: 7.0
+Version: 1.2
 License: Private
+License URI: 
 Text Domain: headless-duck
+Tags: headless
 */
