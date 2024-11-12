@@ -11,9 +11,11 @@ import { ContentInfoQuery } from '@/queries/general/ContentInfoQuery'
 import { SeoQuery } from '@/queries/general/SeoQuery'
 import { fetchGraphQL } from '@/utils/fetchGraphQL'
 import { nextSlugToWpSlug } from '@/utils/nextSlugToWpSlug'
+import { PageProps } from '../../../.next/types/app/[[...slug]]/page'
 
 type Props = {
-	params: { slug: string }
+	params: Promise<{ slug: string }>
+	searchParams?: Promise<any>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -46,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export function generateStaticParams() {
 	return []
 }
-
+// @ts-ignore
 export default async function Page({ params }: Props) {
 	const { slug: rawSlug } = await params
 	const slug = nextSlugToWpSlug(rawSlug)
