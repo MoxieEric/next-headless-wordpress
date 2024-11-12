@@ -40,3 +40,16 @@ certificates
 
 #generated
 gql
+
+# wordpress
+wordpress/conf
+wordpress/logs
+wordpress/app/public/*.php
+wordpress/app/public/*.txt
+wordpress/app/public/*.html
+wordpress/app/public/wp-admin
+wordpress/app/public/wp-includes
+wordpress/app/public/wp-content/uploads
+wordpress/app/public/wp-content/plugins
+wordpress/app/public/wp-content/themes/*
+!wordpress/app/public/wp-content/themes/headless-duck
