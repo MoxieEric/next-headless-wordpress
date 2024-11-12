@@ -8,7 +8,7 @@ import { ContentNode, Page } from '@/gql/graphql'
 import { SeoQuery } from '@/queries/general/SeoQuery'
 import { fetchGraphQL } from '@/utils/fetchGraphQL'
 
-const notFoundPageWordPressId = process.env.NEXT_PUBLIC_WORDPRESS_404_ID || 6
+const notFoundPageWordPressId = process.env.NEXT_PUBLIC_WORDPRESS_404_ID || 8
 
 export async function generateMetadata(): Promise<Metadata> {
 	const { contentNode } = await fetchGraphQL<{ contentNode: ContentNode }>(
