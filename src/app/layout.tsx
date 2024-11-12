@@ -1,27 +1,31 @@
-import { draftMode } from "next/headers";
-import { Inter } from "next/font/google";
+import { Inter } from 'next/font/google'
+import { draftMode } from 'next/headers'
 
-import "@/app/globals.css";
+import '@/app/globals.css'
 
-import Navigation from "@/components/Globals/Navigation/Navigation";
-import { PreviewNotice } from "@/components/Globals/PreviewNotice/PreviewNotice";
+import Navigation from '@/components/Globals/Navigation/Navigation'
+import { PreviewNotice } from '@/components/Globals/PreviewNotice/PreviewNotice'
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] })
 
-export default function RootLayout({
-  children,
+export default async function RootLayout({
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode
 }) {
-  const { isEnabled } = draftMode();
+	const { isEnabled } = await draftMode()
 
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        {isEnabled && <PreviewNotice />}
-        <Navigation />
-        {children}
-      </body>
-    </html>
-  );
+	return (
+		<html lang='en'>
+			<body className={`${inter.className} bg-gray-50`}>
+				<div className='container mx-auto flex flex-col items-center'>
+					{isEnabled && <PreviewNotice />}
+					<Navigation />
+					<div className='w-full max-w-lg flex flex-col items-center justify-center gap-4'>
+						{children}
+					</div>
+				</div>
+			</body>
+		</html>
+	)
 }

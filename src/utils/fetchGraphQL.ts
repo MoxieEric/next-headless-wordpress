@@ -1,61 +1,62 @@
-import { draftMode, cookies } from "next/headers";
+import { cookies, draftMode } from 'next/headers'
 
 export async function fetchGraphQL<T = any>(
-  query: string,
-  variables?: { [key: string]: any },
-  headers?: { [key: string]: string },
+	query: string,
+	variables?: { [key: string]: any },
+	headers?: { [key: string]: string }
 ): Promise<T> {
-  const { isEnabled: preview } = draftMode();
+	const { isEnabled: preview } = await draftMode()
 
-  try {
-    let authHeader = "";
-    if (preview) {
-      const auth = cookies().get("wp_jwt")?.value;
-      if (auth) {
-        authHeader = `Bearer ${auth}`;
-      }
-    }
+	try {
+		let authHeader = ''
+		if (preview) {
+			const cookees = await cookies()
+			const auth = cookees.get('wp_jwt')?.value
+			if (auth) {
+				authHeader = `Bearer ${auth}`
+			}
+		}
 
-    const body = JSON.stringify({
-      query,
-      variables: {
-        preview,
-        ...variables,
-      },
-    });
+		const body = JSON.stringify({
+			query,
+			variables: {
+				preview,
+				...variables,
+			},
+		})
 
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/graphql`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          ...(authHeader && { Authorization: authHeader }),
-          ...headers,
-        },
-        body,
-        cache: preview ? "no-cache" : "default",
-        next: {
-          tags: ["wordpress"],
-        },
-      },
-    );
+		const response = await fetch(
+			`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/graphql`,
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					...(authHeader && { Authorization: authHeader }),
+					...headers,
+				},
+				body,
+				cache: preview ? 'no-cache' : 'default',
+				next: {
+					tags: ['wordpress'],
+				},
+			}
+		)
 
-    if (!response.ok) {
-      console.error("Response Status:", response);
-      throw new Error(response.statusText);
-    }
+		if (!response.ok) {
+			console.error('Response Status:', response)
+			throw new Error(response.statusText)
+		}
 
-    const data = await response.json();
+		const data = await response.json()
 
-    if (data.errors) {
-      console.error("GraphQL Errors:", data.errors);
-      throw new Error("Error executing GraphQL query");
-    }
+		if (data.errors) {
+			console.error('GraphQL Errors:', data.errors)
+			throw new Error('Error executing GraphQL query')
+		}
 
-    return data.data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+		return data.data
+	} catch (error) {
+		console.error(error)
+		throw error
+	}
 }
