@@ -18,10 +18,7 @@ type Props = {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	// const { slug: rawSlug } = await params
-	// const slug = nextSlugToWpSlug(rawSlug)
 	const theParams = await params
-	// const { slug: rawSlug } = await params
 	const slug = nextSlugToWpSlug(theParams?.slug)
 	const isPreview = slug.includes('preview')
 
@@ -41,19 +38,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 	return {
 		...metadata,
-		// alternates: {
-		// 	canonical: `${process.env.NEXT_PUBLIC_BASE_URL}${slug}`,
-		// },
+		alternates: {
+			canonical: `${process.env.NEXT_PUBLIC_BASE_URL}${slug}`,
+		},
 	} as Metadata
 }
 
 export function generateStaticParams() {
 	return []
 }
-// @ts-ignore
+
 export default async function Page({ params }: Props) {
 	const theParams = await params
-	// const { slug: rawSlug } = await params
 	const slug = nextSlugToWpSlug(theParams?.slug)
 	const isPreview = slug?.includes('preview')
 	const { contentNode } = await fetchGraphQL<{ contentNode: ContentNode }>(
