@@ -1,9 +1,3 @@
-import { print } from 'graphql/language/printer'
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-
-import { setSeoData } from '@/utils/seoData'
-
 import PageTemplate from '@/components/Templates/Page/PageTemplate'
 import PostTemplate from '@/components/Templates/Post/PostTemplate'
 import { ContentNode } from '@/gql/graphql'
@@ -11,6 +5,10 @@ import { ContentInfoQuery } from '@/queries/general/ContentInfoQuery'
 import { SeoQuery } from '@/queries/general/SeoQuery'
 import { fetchGraphQL } from '@/utils/fetchGraphQL'
 import { nextSlugToWpSlug } from '@/utils/nextSlugToWpSlug'
+import { setSeoData } from '@/utils/seoData'
+import { print } from 'graphql/language/printer'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 type Props = {
 	params: Promise<{ slug: string }>
@@ -44,8 +42,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	} as Metadata
 }
 
-export function generateStaticParams() {
+export const dynamicParams = true
+
+export async function generateStaticParams() {
 	return []
+	// return [
+	// 	{
+	// 		slug: 'sample-page',
+	// 	},
+	// 	{
+	// 		slug: 'test',
+	// 	},
+	// ]
 }
 
 export default async function Page({ params }: Props) {

@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-tec-section {
+	&.is-selected {
+		@apply border-2 border-green-300 border-dashed;
+	}
+}

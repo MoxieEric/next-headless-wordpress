@@ -1,15 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  trailingSlash: true,
-  images: {
-    remotePatterns: [
-      {
-        protocol: "http",
-        hostname: process.env.NEXT_PUBLIC_WORDPRESS_API_HOSTNAME,
-        port: "",
-      },
-    ],
-  },
-};
+	trailingSlash: true,
+	async redirects() {
+		return [
+			{
+				source: '/',
+				destination: '/de',
+				permanent: true,
+			},
+		]
+	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'http',
+				hostname: process.env.NEXT_PUBLIC_WORDPRESS_API_HOSTNAME,
+				port: '',
+			},
+		],
+	},
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
