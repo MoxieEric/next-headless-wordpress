@@ -23,6 +23,8 @@ function register_new_menu()
   );
 }
 
+include(__DIR__ . '/blocks/section/section.php');
+
 /**
  * Changes the REST API root URL to use the home URL as the base.
  *
