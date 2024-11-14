@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n'
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor'
-import { PanelBody, TextControl } from '@wordpress/components'
+import { PanelBody, TextControl, ToggleControl } from '@wordpress/components'
 import { Section } from '../../../../../../../../../src/components/sections/Section'
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -32,7 +32,7 @@ import '../../../editor.css'
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const { title } = attributes
+	const { title, subtitle, reverseAlignment } = attributes
 	const blockProps = useBlockProps()
 
 	return (
@@ -44,9 +44,26 @@ export default function Edit({ attributes, setAttributes }) {
 						value={title || ''}
 						onChange={(value) => setAttributes({ title: value })}
 					/>
+					<TextControl
+						label={__('Subtitle', 'section')}
+						value={subtitle || ''}
+						onChange={(value) => setAttributes({ subtitle: value })}
+					/>
+					<ToggleControl
+						label={__('Reverse Layout', 'section')}
+						value={reverseAlignment}
+						onChange={(value) =>
+							setAttributes({ reverseAlignment: value })
+						}
+					/>
 				</PanelBody>
 			</InspectorControls>
-			<Section blockProps={blockProps} title={title} />
+			<Section
+				blockProps={blockProps}
+				title={title}
+				subtitle={subtitle}
+				reverseAlignment={reverseAlignment}
+			/>
 		</>
 	)
 }

@@ -550,6 +550,12 @@ video {
 .-left-12 {
   right: -3rem;
 }
+.right-12 {
+  left: 3rem;
+}
+.-right-12 {
+  left: -3rem;
+}
 .mx-auto {
   margin-right: auto;
   margin-left: auto;
@@ -578,9 +584,6 @@ video {
 .w-full {
   width: 100%;
 }
-.max-w-lg {
-  max-width: 32rem;
-}
 .max-w-prose {
   max-width: 65ch;
 }
@@ -589,6 +592,9 @@ video {
 }
 .grid-rows-subgrid {
   grid-template-rows: subgrid;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
 }
 .flex-col {
   flex-direction: column;
@@ -604,6 +610,9 @@ video {
 }
 .gap-4 {
   gap: 1rem;
+}
+.gap-6 {
+  gap: 1.5rem;
 }
 .bg-amber-100 {
   --tw-bg-opacity: 1;
@@ -17215,23 +17224,53 @@ video {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.pl-12 {
-  padding-right: 3rem;
+.px-6 {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }
 .pb-12 {
   padding-bottom: 3rem;
+}
+.pl-12 {
+  padding-right: 3rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-.text-blue-600 {
+.font-semibold {
+  font-weight: 600;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.text-blue-800 {
   --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
+  color: rgb(30 64 175 / var(--tw-text-opacity));
+}
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-teal-500 {
+  --tw-text-opacity: 1;
+  color: rgb(20 184 166 / var(--tw-text-opacity));
+}
+.text-teal-600 {
+  --tw-text-opacity: 1;
+  color: rgb(13 148 136 / var(--tw-text-opacity));
 }
 .bg-blend-normal {
   background-blend-mode: normal;
@@ -17289,11 +17328,19 @@ video {
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-create-block-section .is-selected {
-  border-width: 4px;
+.wp-block-tec-section.is-selected {
+  border-width: 2px;
   border-style: dashed;
   --tw-border-opacity: 1;
-  border-color: rgb(220 38 38 / var(--tw-border-opacity));
+  border-color: rgb(134 239 172 / var(--tw-border-opacity));
+}
+.hover\:text-teal-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(15 118 110 / var(--tw-text-opacity));
+}
+.hover\:text-teal-800:hover {
+  --tw-text-opacity: 1;
+  color: rgb(17 94 89 / var(--tw-text-opacity));
 }
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/.pnpm/css-loader@6.11.0_webpack@5.96.1_webpack-cli@5.1.4_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/.pnpm/postcss-loader@6.2.1_postcss@8.4.49_webpack@5.96.1_webpack-cli@5.1.4_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./wordpress/app/public/wp-content/themes/headless-duck/editor.css ***!
@@ -17904,12 +17951,12 @@ video {
   position: sticky;
 }
 
-.-left-4 {
-  right: -1rem;
-}
-
 .-left-12 {
   right: -3rem;
+}
+
+.-right-12 {
+  left: -3rem;
 }
 
 .mx-auto {
@@ -17949,10 +17996,6 @@ video {
   width: 100%;
 }
 
-.max-w-lg {
-  max-width: 32rem;
-}
-
 .max-w-prose {
   max-width: 65ch;
 }
@@ -17963,6 +18006,10 @@ video {
 
 .grid-rows-subgrid {
   grid-template-rows: subgrid;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
 }
 
 .flex-col {
@@ -17983,6 +18030,10 @@ video {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
 }
 
 .bg-amber-100 {
@@ -40039,6 +40090,11 @@ video {
   padding-left: 1rem;
 }
 
+.px-6 {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
 .py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -40049,14 +40105,50 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.pb-12 {
+  padding-bottom: 3rem;
+}
+
+.pl-12 {
+  padding-right: 3rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
-.text-blue-600 {
+.font-semibold {
+  font-weight: 600;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-blue-800 {
   --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity));
+  color: rgb(30 64 175 / var(--tw-text-opacity));
+}
+
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+.text-teal-600 {
+  --tw-text-opacity: 1;
+  color: rgb(13 148 136 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -40130,5 +40222,10 @@ video {
 
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.hover\:text-teal-800:hover {
+  --tw-text-opacity: 1;
+  color: rgb(17 94 89 / var(--tw-text-opacity));
 }
 

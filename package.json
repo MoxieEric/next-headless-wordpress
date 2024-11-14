@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"@next/env": "^15.0.3",
+		"classnames": "^2.5.1",
 		"graphql": "^16.9.0",
 		"graphql-tag": "^2.12.6",
 		"next": "latest",

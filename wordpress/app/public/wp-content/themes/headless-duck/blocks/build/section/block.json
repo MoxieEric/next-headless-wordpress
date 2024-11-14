@@ -3,9 +3,9 @@
   "apiVersion": 3,
   "name": "tec/section",
   "version": "0.1.0",
-  "title": "Section",
-  "category": "widgets",
-  "icon": "smiley",
+  "title": "Panel Section",
+  "category": "duck-sections",
+  "icon": "align-left",
   "description": "Basic custom section",
   "example": {},
   "supports": {
@@ -13,14 +13,15 @@
   },
   "attributes": {
     "title": {
+      "type": "string",
+      "default": "Headline Here"
+    },
+    "subtitle": {
       "type": "string"
     },
-    "alignment": {
-      "enum": [
-        "left",
-        "right",
-        "center"
-      ]
+    "reverseAlignment": {
+      "type": "boolean",
+      "default": false
     }
   },
   "textdomain": "section",

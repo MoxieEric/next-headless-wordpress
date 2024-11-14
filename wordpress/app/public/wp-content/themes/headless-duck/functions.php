@@ -23,13 +23,27 @@ function register_new_menu()
   );
 }
 
-// include(__DIR__ . '/blocks/src/section/section.php');
 
 function create_block_section_block_init() {
 	register_block_type( __DIR__ . '/blocks/build/section/block.json' );
 
 }
 add_action( 'init', 'create_block_section_block_init' );
+
+
+function custom_block_category( $categories ) {
+    return array_merge(
+        array(
+            array(
+                'slug' => 'duck-sections',
+                'title' => 'Sample Sections',
+            ),
+        ),
+        $categories
+    );
+}
+add_filter( 'block_categories', 'custom_block_category', 10, 2 );
+
 
 /**
  * Changes the REST API root URL to use the home URL as the base.

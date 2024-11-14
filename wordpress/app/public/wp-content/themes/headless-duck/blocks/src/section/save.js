@@ -17,6 +17,13 @@ import { Section } from '../../../../../../../../../src/components/sections/Sect
  * @return {Element} Element to render.
  */
 export default function save({ attributes }) {
-	const { title } = attributes
-	return <Section {...useBlockProps.save()} title={title} />
+	const { title, subtitle, reverseAlignment } = attributes
+	return (
+		<Section
+			{...useBlockProps.save()}
+			title={title}
+			subtitle={subtitle}
+			reverseAlignment={reverseAlignment}
+		/>
+	)
 }
