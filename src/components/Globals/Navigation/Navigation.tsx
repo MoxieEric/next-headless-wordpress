@@ -47,10 +47,10 @@ export default async function Navigation() {
 				return (
 					<Link
 						itemProp='url'
-						href={item.uri}
+						href={`/de${item.uri}`}
 						key={index}
 						target={item.target || '_self'}
-						className='px-4 py-2'
+						className='px-4 py-2 uppercase font-semibold text-teal-600 hover:text-teal-800'
 					>
 						<span itemProp='name'>{item.label}</span>
 					</Link>
