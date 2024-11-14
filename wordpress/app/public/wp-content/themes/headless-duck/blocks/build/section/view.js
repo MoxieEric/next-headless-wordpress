@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
-/*!*********************!*\
-  !*** ./src/view.js ***!
-  \*********************/
+/*!*****************************************************************************************!*\
+  !*** ./wordpress/app/public/wp-content/themes/headless-duck/blocks/src/section/view.js ***!
+  \*****************************************************************************************/
 /**
  * Use this file for JavaScript code that you want to run in the front-end
  * on posts/pages that contain this block.

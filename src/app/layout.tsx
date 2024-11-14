@@ -21,7 +21,7 @@ export default async function RootLayout({
 				<div className='container mx-auto flex flex-col items-center'>
 					{isEnabled && <PreviewNotice />}
 					<Navigation />
-					<div className='w-full max-w-lg flex flex-col items-center justify-center gap-4'>
+					<div className='w-full flex flex-col items-center justify-center gap-4 pb-12'>
 						{children}
 					</div>
 				</div>
