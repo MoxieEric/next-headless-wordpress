@@ -1,0 +1,31 @@
+name:  Deploy WP Theeme to SiteGround
+on:
+  workflow_dispatch: 
+    # branches:
+    # #   - [your-branch-name] # Replace with your branch name
+    #   - main # Replace with your branch name
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # Run this job on the latest Ubuntu version
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2 # Check out your repository code
+      - name: ssh login
+        uses: matheusvanzan/sshpass-action@v2
+        with:
+          host: giowm1167.siteground.biz
+          port: 18765
+          user: u2875-r9lkwj9jfhu1
+          pass: ${{ secrets.SSH_KEYPASS }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          
+          run: |
+            # copy theme files
+            # cd www/headless-cms.ericnowels.co/public_html/wp-content/themes
+            cd www/headless-cms.ericnowels.co/next-headless-wordpress 
+            git pull
+            cp -a wordpress/app/public/wp-content/themes/headless-duck/. ../public_html/wp-content/themes/headless-duck
+    permissions:
+      contents: read
+      actions: write
+      id-token: write
